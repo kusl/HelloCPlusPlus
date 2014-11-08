@@ -1,7 +1,7 @@
 #include <Windows.h>
 int main()
 {
-	double(__cdecl *MyAdd) (double, double);
+	double(__cdecl *kigDoubleAddition) (double, double);
 	HINSTANCE hDLL;
 	FARPROC pcci;
 	//MyAdd Add;
@@ -12,7 +12,7 @@ int main()
 	if (hDLL != NULL)
 	{
 		//Add = (MyAdd)GetProcAddress(hDLL, "Subtract");
-		pcci = GetProcAddress(hDLL, "kig");
+		pcci = GetProcAddress(hDLL, "kigDoubleAddition");
 		if (!pcci)
 		{
 			FreeLibrary(hDLL);
@@ -22,8 +22,8 @@ int main()
 		{
 			double a = 2.0;
 			double b = 3.0;
-			MyAdd = (double(__cdecl *)(double, double)) pcci;
-			uReturnVal = MyAdd(2.0, 3.0);
+			kigDoubleAddition = (double(__cdecl *)(double, double)) pcci;
+			uReturnVal = kigDoubleAddition(2.0, 3.0);
 			if (uReturnVal == a + b)
 			{
 				return ERROR_SUCCESS;
