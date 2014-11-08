@@ -20,12 +20,15 @@ int main()
 		}
 		else
 		{
+			double a = 2.0;
+			double b = 3.0;
 			MyAdd = (double(__cdecl *)(double, double)) pcci;
 			uReturnVal = MyAdd(2.0, 3.0);
-			if (uReturnVal > 0)
+			if (uReturnVal == a + b)
 			{
 				return ERROR_SUCCESS;
 			}
+			else { return ERROR_UNIDENTIFIED_ERROR; }
 		}
 	}
       	return 0;
